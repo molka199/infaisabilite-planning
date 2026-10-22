@@ -1,3 +1,5 @@
+# Initiation — Expliquer l'infaisabilité d'un planning hospitalier
+
 ## 1. Ma compréhension du sujet
 
 Un cadre de santé construit un planning sous de nombreuses contraintes: besoins à couvrir, congés,
@@ -44,6 +46,8 @@ Tout tourne en quelques secondes avec la licence gratuite de Gurobi (le modèle 
 **Étape 1** (`figures/1_ce_que_voit_le_cadre.png`). Pour S2 et S3, le cadre n'obtient aucune
 information. C'est le point de départ du sujet.
 
+![Ce que voit le cadre](figures/1_ce_que_voit_le_cadre.png)
+
 **Étape 2** (`figures/2_explication_du_conflit.png`). Trois outils complémentaires:
 
 - **IIS de Gurobi** (`computeIIS`): un sous-ensemble irréductible d'inégalités en conflit
@@ -64,6 +68,8 @@ S3 montre une difficulté réelle du sujet: le conflit minimal contient 13 contr
 cadre. La phrase agrégée est bien plus utile. **Choisir le bon niveau d'explication** est un des
 enjeux du stage.
 
+![Explication du conflit](figures/2_explication_du_conflit.png)
+
 **Étape 3** (`figures/3_etude_structurelle.png`). Pour 90 combinaisons (3 à 12 infirmières,
 1 à 3 agents de jour et de nuit), on compare le solveur à un simple comptage des capacités.
 Presque toujours, le comptage suffit. Mais pour J=2, N=3, il annonce 7 infirmières alors qu'il en
@@ -71,6 +77,8 @@ faut 8: les 3 infirmières de la nuit précédente sont au repos, il faut donc 2
 chaque jour. Le conflit minimal trouvé par le filtre le confirme: 3 besoins + 7 règles de repos.
 C'est une **infaisabilité due à l'interaction des règles**, invisible dans les chiffres
 d'effectifs, et c'est exactement ce que la seconde partie du stage veut caractériser.
+
+![Étude structurelle](figures/3_etude_structurelle.png)
 
 **Étape 4** (figures 4 à 6). Le « manque » est le plus petit nombre de postes non couverts,
 calculé par `feasRelax`; il vaut 0 quand le planning est faisable.
@@ -82,6 +90,12 @@ calculé par `feasRelax`; il vaut 0 quand le planning est faisable.
   il faut du personnel. C'est l'impact des **contraintes réglementaires**, et sa limite.
 - `6_leviers.png`: pour S2 et S3, ce que chaque action corrige à elle seule. Cette lecture
   correspond aux explications « que faut-il changer » attendues par un cadre de santé.
+
+![Manque selon l'effectif](figures/4_manque_selon_effectif.png)
+
+![Manque selon la règle des nuits](figures/5_manque_selon_regle_nuits.png)
+
+![Leviers](figures/6_leviers.png)
 
 ## 4. Ce que je retiens
 
