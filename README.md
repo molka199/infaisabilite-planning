@@ -1,9 +1,3 @@
-# Initiation — Expliquer l'infaisabilité d'un planning hospitalier
-
-Petit travail personnel préparé avant ma candidature au stage « Analyse et identification des causes
-d'infaisabilité dans les problèmes de plannings de personnels hospitaliers ». Le but n'est pas de
-résoudre le sujet, mais de montrer comment je l'ai compris, sur un exemple volontairement petit.
-
 ## 1. Ma compréhension du sujet
 
 Un cadre de santé construit un planning sous de nombreuses contraintes: besoins à couvrir, congés,
